@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d4ea16c4a7848fb9973fd0a1ee25842" Name="Diagram1">
+        <EntityTypeShape EntityType="BkSevadhariModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.AspNetRole" Width="1.5" PointX="7.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.AspNetUser" Width="1.5" PointX="10" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.CenterMaster" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.Department" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.IdProofType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.MadhubanLocation" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.SevadhariDetail" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BkSevadhariModel.SevaDhariMaster" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="BkSevadhariModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BkSevadhariModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BkSevadhariModel.FK_SevaDhariMaster_CenterMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="BkSevadhariModel.FK_SevadhariDetail_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="BkSevadhariModel.FK_SevaDhariMaster_IdProofType" ManuallyRouted="false" />
+        <AssociationConnector Association="BkSevadhariModel.FK_SevadhariDetail_MadhubanLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="BkSevadhariModel.FK_SevadhariDetail_SevaDhariMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="BkSevadhariModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BkSevadhariModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CenterMaster">
+          <Key>
+            <PropertyRef Name="CertificateNo" />
+          </Key>
+          <Property Name="CertificateNo" Type="int" Nullable="false" />
+          <Property Name="CenterName" Type="varchar" MaxLength="50" />
+          <Property Name="TeacherName" Type="varchar" MaxLength="100" />
+          <Property Name="InChargeName" Type="varchar" MaxLength="100" />
+          <Property Name="PadNo" Type="varchar" MaxLength="50" />
+          <Property Name="Zone" Type="varchar" MaxLength="50" />
+          <Property Name="SubZone" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="10" />
+          <Property Name="MobileNo1" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="PinNo" Type="varchar" MaxLength="10" />
+          <Property Name="CreatedModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IdProofType">
+          <Key>
+            <PropertyRef Name="ProofTypeId" />
+          </Key>
+          <Property Name="ProofTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MadhubanLocations">
+          <Key>
+            <PropertyRef Name="MadhubanLocId" />
+          </Key>
+          <Property Name="MadhubanLocId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SevadhariDetail">
+          <Key>
+            <PropertyRef Name="SdId" />
+          </Key>
+          <Property Name="SdId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SmId" Type="int" Nullable="false" />
+          <Property Name="ProgramName" Type="varchar" MaxLength="50" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="DeptId" Type="int" />
+          <Property Name="MadhubanLocId" Type="int" />
+          <Property Name="BuildingName" Type="varchar" MaxLength="50" />
+          <Property Name="RoomNo" Type="varchar" MaxLength="10" />
+          <Property Name="HasApprovalLetter" Type="nchar" MaxLength="4" />
+          <Property Name="IsExpired" Type="nchar" MaxLength="3" />
+          <Property Name="Comments" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedModifiedOn" Type="date" Nullable="false" />
+          <Property Name="IsDeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SevaDhariMaster">
+          <Key>
+            <PropertyRef Name="SmId" />
+          </Key>
+          <Property Name="SmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegistrationNo" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="char" MaxLength="11" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="10" />
+          <Property Name="MobileNo1" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Occupation" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="YearsInGyan" Type="tinyint" />
+          <Property Name="ProofTypeId" Type="int" />
+          <Property Name="IdProofNumber" Type="varchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="varchar(max)" />
+          <Property Name="CreatedModifiedOn" Type="date" Nullable="false" />
+          <Property Name="BlackList" Type="char" MaxLength="3" />
+          <Property Name="Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="HealthInfo" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="MadhubanCode" Type="varchar" MaxLength="50" />
+          <Property Name="CertificateNo" Type="int" />
+          <Property Name="IsDeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevadhariDetail_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="SevadhariDetail" Type="Self.SevadhariDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="SevadhariDetail">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevadhariDetail_MadhubanLocations">
+          <End Role="MadhubanLocations" Type="Self.MadhubanLocations" Multiplicity="0..1" />
+          <End Role="SevadhariDetail" Type="Self.SevadhariDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MadhubanLocations">
+              <PropertyRef Name="MadhubanLocId" />
+            </Principal>
+            <Dependent Role="SevadhariDetail">
+              <PropertyRef Name="MadhubanLocId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevadhariDetail_SevaDhariMaster">
+          <End Role="SevaDhariMaster" Type="Self.SevaDhariMaster" Multiplicity="1" />
+          <End Role="SevadhariDetail" Type="Self.SevadhariDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SevaDhariMaster">
+              <PropertyRef Name="SmId" />
+            </Principal>
+            <Dependent Role="SevadhariDetail">
+              <PropertyRef Name="SmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevaDhariMaster_CenterMaster">
+          <End Role="CenterMaster" Type="Self.CenterMaster" Multiplicity="0..1" />
+          <End Role="SevaDhariMaster" Type="Self.SevaDhariMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CenterMaster">
+              <PropertyRef Name="CertificateNo" />
+            </Principal>
+            <Dependent Role="SevaDhariMaster">
+              <PropertyRef Name="CertificateNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevaDhariMaster_IdProofType">
+          <End Role="IdProofType" Type="Self.IdProofType" Multiplicity="0..1" />
+          <End Role="SevaDhariMaster" Type="Self.SevaDhariMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdProofType">
+              <PropertyRef Name="ProofTypeId" />
+            </Principal>
+            <Dependent Role="SevaDhariMaster">
+              <PropertyRef Name="ProofTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BkSevadhariModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CenterMaster" EntityType="Self.CenterMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdProofType" EntityType="Self.IdProofType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MadhubanLocations" EntityType="Self.MadhubanLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SevadhariDetail" EntityType="Self.SevadhariDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SevaDhariMaster" EntityType="Self.SevaDhariMaster" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevadhariDetail_Department" Association="Self.FK_SevadhariDetail_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="SevadhariDetail" EntitySet="SevadhariDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevadhariDetail_MadhubanLocations" Association="Self.FK_SevadhariDetail_MadhubanLocations">
+            <End Role="MadhubanLocations" EntitySet="MadhubanLocations" />
+            <End Role="SevadhariDetail" EntitySet="SevadhariDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevadhariDetail_SevaDhariMaster" Association="Self.FK_SevadhariDetail_SevaDhariMaster">
+            <End Role="SevaDhariMaster" EntitySet="SevaDhariMaster" />
+            <End Role="SevadhariDetail" EntitySet="SevadhariDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevaDhariMaster_CenterMaster" Association="Self.FK_SevaDhariMaster_CenterMaster">
+            <End Role="CenterMaster" EntitySet="CenterMaster" />
+            <End Role="SevaDhariMaster" EntitySet="SevaDhariMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevaDhariMaster_IdProofType" Association="Self.FK_SevaDhariMaster_IdProofType">
+            <End Role="IdProofType" EntitySet="IdProofType" />
+            <End Role="SevaDhariMaster" EntitySet="SevaDhariMaster" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BkSevadhariModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="CenterMaster">
+          <Key>
+            <PropertyRef Name="CertificateNo" />
+          </Key>
+          <Property Name="CertificateNo" Type="Int32" Nullable="false" />
+          <Property Name="CenterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InChargeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PadNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubZone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PinNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SevaDhariMasters" Relationship="Self.FK_SevaDhariMaster_CenterMaster" FromRole="CenterMaster" ToRole="SevaDhariMaster" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SevadhariDetails" Relationship="Self.FK_SevadhariDetail_Department" FromRole="Department" ToRole="SevadhariDetail" />
+        </EntityType>
+        <EntityType Name="IdProofType">
+          <Key>
+            <PropertyRef Name="ProofTypeId" />
+          </Key>
+          <Property Name="ProofTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SevaDhariMasters" Relationship="Self.FK_SevaDhariMaster_IdProofType" FromRole="IdProofType" ToRole="SevaDhariMaster" />
+        </EntityType>
+        <EntityType Name="MadhubanLocation">
+          <Key>
+            <PropertyRef Name="MadhubanLocId" />
+          </Key>
+          <Property Name="MadhubanLocId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SevadhariDetails" Relationship="Self.FK_SevadhariDetail_MadhubanLocations" FromRole="MadhubanLocations" ToRole="SevadhariDetail" />
+        </EntityType>
+        <EntityType Name="SevadhariDetail">
+          <Key>
+            <PropertyRef Name="SdId" />
+          </Key>
+          <Property Name="SdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SmId" Type="Int32" Nullable="false" />
+          <Property Name="ProgramName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="DeptId" Type="Int32" />
+          <Property Name="MadhubanLocId" Type="Int32" />
+          <Property Name="BuildingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoomNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HasApprovalLetter" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="IsExpired" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedModifiedOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_SevadhariDetail_Department" FromRole="SevadhariDetail" ToRole="Department" />
+          <NavigationProperty Name="MadhubanLocation" Relationship="Self.FK_SevadhariDetail_MadhubanLocations" FromRole="SevadhariDetail" ToRole="MadhubanLocations" />
+          <NavigationProperty Name="SevaDhariMaster" Relationship="Self.FK_SevadhariDetail_SevaDhariMaster" FromRole="SevadhariDetail" ToRole="SevaDhariMaster" />
+        </EntityType>
+        <EntityType Name="SevaDhariMaster">
+          <Key>
+            <PropertyRef Name="SmId" />
+          </Key>
+          <Property Name="SmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegistrationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="YearsInGyan" Type="Byte" />
+          <Property Name="ProofTypeId" Type="Int32" />
+          <Property Name="IdProofNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedModifiedOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BlackList" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HealthInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MadhubanCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CertificateNo" Type="Int32" />
+          <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CenterMaster" Relationship="Self.FK_SevaDhariMaster_CenterMaster" FromRole="SevaDhariMaster" ToRole="CenterMaster" />
+          <NavigationProperty Name="IdProofType" Relationship="Self.FK_SevaDhariMaster_IdProofType" FromRole="SevaDhariMaster" ToRole="IdProofType" />
+          <NavigationProperty Name="SevadhariDetails" Relationship="Self.FK_SevadhariDetail_SevaDhariMaster" FromRole="SevaDhariMaster" ToRole="SevadhariDetail" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevaDhariMaster_CenterMaster">
+          <End Role="CenterMaster" Type="Self.CenterMaster" Multiplicity="0..1" />
+          <End Role="SevaDhariMaster" Type="Self.SevaDhariMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CenterMaster">
+              <PropertyRef Name="CertificateNo" />
+            </Principal>
+            <Dependent Role="SevaDhariMaster">
+              <PropertyRef Name="CertificateNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevadhariDetail_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="SevadhariDetail" Type="Self.SevadhariDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="SevadhariDetail">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevaDhariMaster_IdProofType">
+          <End Role="IdProofType" Type="Self.IdProofType" Multiplicity="0..1" />
+          <End Role="SevaDhariMaster" Type="Self.SevaDhariMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdProofType">
+              <PropertyRef Name="ProofTypeId" />
+            </Principal>
+            <Dependent Role="SevaDhariMaster">
+              <PropertyRef Name="ProofTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevadhariDetail_MadhubanLocations">
+          <End Role="MadhubanLocations" Type="Self.MadhubanLocation" Multiplicity="0..1" />
+          <End Role="SevadhariDetail" Type="Self.SevadhariDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MadhubanLocations">
+              <PropertyRef Name="MadhubanLocId" />
+            </Principal>
+            <Dependent Role="SevadhariDetail">
+              <PropertyRef Name="MadhubanLocId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SevadhariDetail_SevaDhariMaster">
+          <End Role="SevaDhariMaster" Type="Self.SevaDhariMaster" Multiplicity="1" />
+          <End Role="SevadhariDetail" Type="Self.SevadhariDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SevaDhariMaster">
+              <PropertyRef Name="SmId" />
+            </Principal>
+            <Dependent Role="SevadhariDetail">
+              <PropertyRef Name="SmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BkSevadhariEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="CenterMasters" EntityType="Self.CenterMaster" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="IdProofTypes" EntityType="Self.IdProofType" />
+          <EntitySet Name="MadhubanLocations" EntityType="Self.MadhubanLocation" />
+          <EntitySet Name="SevadhariDetails" EntityType="Self.SevadhariDetail" />
+          <EntitySet Name="SevaDhariMasters" EntityType="Self.SevaDhariMaster" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevaDhariMaster_CenterMaster" Association="Self.FK_SevaDhariMaster_CenterMaster">
+            <End Role="CenterMaster" EntitySet="CenterMasters" />
+            <End Role="SevaDhariMaster" EntitySet="SevaDhariMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevadhariDetail_Department" Association="Self.FK_SevadhariDetail_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="SevadhariDetail" EntitySet="SevadhariDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevaDhariMaster_IdProofType" Association="Self.FK_SevaDhariMaster_IdProofType">
+            <End Role="IdProofType" EntitySet="IdProofTypes" />
+            <End Role="SevaDhariMaster" EntitySet="SevaDhariMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevadhariDetail_MadhubanLocations" Association="Self.FK_SevadhariDetail_MadhubanLocations">
+            <End Role="MadhubanLocations" EntitySet="MadhubanLocations" />
+            <End Role="SevadhariDetail" EntitySet="SevadhariDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SevadhariDetail_SevaDhariMaster" Association="Self.FK_SevadhariDetail_SevaDhariMaster">
+            <End Role="SevaDhariMaster" EntitySet="SevaDhariMasters" />
+            <End Role="SevadhariDetail" EntitySet="SevadhariDetails" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BkSevadhariModelStoreContainer" CdmEntityContainer="BkSevadhariEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="BkSevadhariModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="BkSevadhariModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="BkSevadhariModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="BkSevadhariModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="BkSevadhariModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CenterMasters">
+            <EntityTypeMapping TypeName="BkSevadhariModel.CenterMaster">
+              <MappingFragment StoreEntitySet="CenterMaster">
+                <ScalarProperty Name="CertificateNo" ColumnName="CertificateNo" />
+                <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="InChargeName" ColumnName="InChargeName" />
+                <ScalarProperty Name="PadNo" ColumnName="PadNo" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="SubZone" ColumnName="SubZone" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="MobileNo1" ColumnName="MobileNo1" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PinNo" ColumnName="PinNo" />
+                <ScalarProperty Name="CreatedModifiedOn" ColumnName="CreatedModifiedOn" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="BkSevadhariModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdProofTypes">
+            <EntityTypeMapping TypeName="BkSevadhariModel.IdProofType">
+              <MappingFragment StoreEntitySet="IdProofType">
+                <ScalarProperty Name="ProofTypeId" ColumnName="ProofTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MadhubanLocations">
+            <EntityTypeMapping TypeName="BkSevadhariModel.MadhubanLocation">
+              <MappingFragment StoreEntitySet="MadhubanLocations">
+                <ScalarProperty Name="MadhubanLocId" ColumnName="MadhubanLocId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SevadhariDetails">
+            <EntityTypeMapping TypeName="BkSevadhariModel.SevadhariDetail">
+              <MappingFragment StoreEntitySet="SevadhariDetail">
+                <ScalarProperty Name="SdId" ColumnName="SdId" />
+                <ScalarProperty Name="SmId" ColumnName="SmId" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="MadhubanLocId" ColumnName="MadhubanLocId" />
+                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+                <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+                <ScalarProperty Name="HasApprovalLetter" ColumnName="HasApprovalLetter" />
+                <ScalarProperty Name="IsExpired" ColumnName="IsExpired" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CreatedModifiedOn" ColumnName="CreatedModifiedOn" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SevaDhariMasters">
+            <EntityTypeMapping TypeName="BkSevadhariModel.SevaDhariMaster">
+              <MappingFragment StoreEntitySet="SevaDhariMaster">
+                <ScalarProperty Name="SmId" ColumnName="SmId" />
+                <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="MobileNo1" ColumnName="MobileNo1" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="YearsInGyan" ColumnName="YearsInGyan" />
+                <ScalarProperty Name="ProofTypeId" ColumnName="ProofTypeId" />
+                <ScalarProperty Name="IdProofNumber" ColumnName="IdProofNumber" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="CreatedModifiedOn" ColumnName="CreatedModifiedOn" />
+                <ScalarProperty Name="BlackList" ColumnName="BlackList" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="HealthInfo" ColumnName="HealthInfo" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="MadhubanCode" ColumnName="MadhubanCode" />
+                <ScalarProperty Name="CertificateNo" ColumnName="CertificateNo" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="BkSevadhariModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
